@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_background"
+    tools:context=".view.CityActivity">
+
+    <ImageView
+        android:id="@+id/city_iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/city_padding"
+        android:src="@drawable/nav_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/city_padding"
+        android:text="@string/add_city"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/city_iv_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/city_divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_iv_back"></View>
+
+    <EditText
+        android:id="@+id/city_et_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_edit_height"
+        android:layout_marginEnd="@dimen/search_edit_margin"
+        android:layout_marginStart="@dimen/search_edit_margin"
+        android:layout_marginTop="@dimen/search_edit_margin_top"
+        android:background="@drawable/search_et_bg"
+        android:hint="@string/hint_search"
+        android:paddingStart="@dimen/search_edit_padding_start"
+        android:textColor="@color/white"
+        android:textSize="@dimen/search_edit_textSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_divider" />
+
+    <TextView
+        android:id="@+id/city_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/city_title_height"
+        android:layout_marginTop="@dimen/city_title_margin_top"
+        android:background="@color/city_title_background"
+        android:paddingBottom="@dimen/city_title_padding_bottom"
+        android:paddingStart="@dimen/city_title_padding_start"
+        android:paddingTop="@dimen/city_title_padding_top"
+        android:text="@string/top_city"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_et_search" />
+
+    <GridView
+        android:id="@+id/city_gv_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:horizontalSpacing="1dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_tv_title"></GridView>
+
+    <ListView
+        android:id="@+id/city_lv_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_tv_title"></ListView>
+
+</android.support.constraint.ConstraintLayout>

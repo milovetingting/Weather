@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleView">
+        <attr name="title" format="string"></attr>
+        <attr name="title_text_color" format="color"></attr>
+        <attr name="title_text_size" format="dimension"></attr>
+        <attr name="inner_title" format="string"></attr>
+        <attr name="inner_title_text_color" format="color"></attr>
+        <attr name="inner_title_text_size" format="dimension"></attr>
+        <attr name="inner_content" format="string"></attr>
+        <attr name="inner_content_text_color" format="color"></attr>
+        <attr name="inner_content_text_size" format="dimension"></attr>
+        <attr name="inner_content_margin_top" format="dimension"></attr>
+        <attr name="circle_radius" format="dimension"></attr>
+        <attr name="circle_width" format="dimension"></attr>
+        <attr name="circle_min_value" format="integer"></attr>
+        <attr name="circle_min_value_text_size" format="dimension"></attr>
+        <attr name="circle_min_value_text_color" format="color"></attr>
+        <attr name="circle_max_value" format="integer"></attr>
+        <attr name="circle_max_value_text_size" format="dimension"></attr>
+        <attr name="circle_max_value_text_color" format="color"></attr>
+        <attr name="circle_value" format="integer"></attr>
+        <attr name="circle_background_color" format="color"></attr>
+        <attr name="circle_fore_color" format="color"></attr>
+        <attr name="circle_margin_top" format="dimension"></attr>
+        <attr name="circle_margin_bottom" format="dimension"></attr>
+    </declare-styleable>
+</resources>

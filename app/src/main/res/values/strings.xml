@@ -1,0 +1,19 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">天气</string>
+    <string name="auto_update">自动更新</string>
+    <string name="update_interval">更新间隔</string>
+    <string name="unit">小时 ></string>
+    <string name="hint_search">搜索城市(中文/拼音)</string>
+    <string name="load_failed">加载失败</string>
+    <string name="search_result">搜索到<xliff:g id="result">%s</xliff:g>个结果</string>
+    <string name="top_city">推荐城市</string>
+    <string name="update_time">更新:</string>
+    <string name="air">空气:</string>
+    <string name="add_city">添加城市</string>
+    <string name="manage_city">管理城市</string>
+    <string name="setting">设置</string>
+    <string name="air_quality">空气质量</string>
+    <string name="city">城市</string>
+    <string name="pollution">污染指数</string>
+    <string name="pm10">PM10</string>
+</resources>

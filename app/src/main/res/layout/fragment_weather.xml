@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/weather_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:srlAccentColor="@android:color/transparent">
+
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.scwang.smartrefresh.layout.header.ClassicsHeader>
+
+    <ScrollView
+        android:id="@+id/weather_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/weather_cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/weather_tv_current_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_title_marginTop"
+                android:textColor="@color/white"
+                android:textSize="@dimen/weather_title_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/weather_tv_current_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:textColor="@color/white"
+                android:textSize="@dimen/weather_current_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_current_temperature" />
+
+            <TextView
+                android:id="@+id/weather_tv_today_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:textColor="@color/white"
+                android:textSize="@dimen/weather_current_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_current_weather" />
+
+            <TextView
+                android:id="@+id/weather_tv_today_air"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:textColor="@color/white"
+                android:textSize="@dimen/weather_current_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_today_temperature" />
+
+            <TextView
+                android:id="@+id/weather_tv_last_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_today_air" />
+
+            <ImageView
+                android:id="@+id/weather_iv_api_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/weather_current_marginTop"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:src="@drawable/api_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_today_air" />
+
+            <View
+                android:id="@+id/weather_view_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:background="@color/setting_divider_background"
+                app:layout_constraintTop_toBottomOf="@id/weather_iv_api_logo" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/weather_rv_hourly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                app:layout_constraintTop_toBottomOf="@id/weather_view_divider"></android.support.v7.widget.RecyclerView>
+
+            <View
+                android:id="@+id/weather_view_divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:background="@color/setting_divider_background"
+                app:layout_constraintTop_toBottomOf="@id/weather_rv_hourly" />
+
+            <ListView
+                android:id="@+id/weather_lv_daily"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/weather_daily_height"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                app:layout_constraintTop_toBottomOf="@id/weather_view_divider2"></ListView>
+
+            <View
+                android:id="@+id/weather_view_divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:background="@color/setting_divider_background"
+                app:layout_constraintTop_toBottomOf="@id/weather_lv_daily" />
+
+            <TextView
+                android:id="@+id/weather_tv_air_quality_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/weather_current_marginTop"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                android:text="@string/air_quality"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_view_divider3" />
+
+            <com.wangyz.weather.custom.CircleView
+                android:id="@+id/weather_cv_air"
+                android:layout_width="@dimen/weather_air_size"
+                android:layout_height="@dimen/weather_air_size"
+                android:layout_marginTop="@dimen/weather_current_marginTop"
+                app:circle_background_color="@color/circle_background_color"
+                app:circle_fore_color="@color/circle_fore_color"
+                app:circle_margin_bottom="@dimen/circle_margin_bottom"
+                app:circle_margin_top="@dimen/weather_current_marginTop"
+                app:circle_max_value="500"
+                app:circle_max_value_text_size="@dimen/circle_max_value_text_size"
+                app:circle_min_value="0"
+                app:circle_min_value_text_size="@dimen/circle_min_value_text_size"
+                app:circle_radius="@dimen/circle_radius"
+                app:inner_content=""
+                app:inner_content_margin_top="@dimen/inner_content_margin_top"
+                app:inner_content_text_size="@dimen/inner_content_text_size"
+                app:inner_title=""
+                app:inner_title_text_size="@dimen/inner_title_text_size"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_air_quality_title"
+                app:title="@string/pollution"
+                app:title_text_size="@dimen/title_text_size" />
+
+            <TextView
+                android:id="@+id/weather_tv_pm10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/pm10"
+                android:textColor="@color/pollution_color"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_air"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_air_quality_title" />
+
+            <TextView
+                android:id="@+id/weather_tv_pm10_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_pm10"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_pm10" />
+
+            <TextView
+                android:id="@+id/weather_tv_pm25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="PM2.5"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_air"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_pm10" />
+
+            <TextView
+                android:id="@+id/weather_tv_pm25_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_pm25"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_pm25" />
+
+            <TextView
+                android:id="@+id/weather_tv_no2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="NO2"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_air"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_pm25" />
+
+            <TextView
+                android:id="@+id/weather_tv_no2_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_no2"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_no2" />
+
+            <TextView
+                android:id="@+id/weather_tv_so2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="SO2"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_air"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_no2" />
+
+            <TextView
+                android:id="@+id/weather_tv_so2_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_so2"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_so2" />
+
+            <TextView
+                android:id="@+id/weather_tv_o3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="O3"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_air"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_so2" />
+
+            <TextView
+                android:id="@+id/weather_tv_o3_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_o3"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_o3" />
+
+            <TextView
+                android:id="@+id/weather_tv_co"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="CO"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_air"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_o3" />
+
+            <TextView
+                android:id="@+id/weather_tv_co_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_co"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_co" />
+
+            <View
+                android:id="@+id/weather_view_divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="5dp"
+                android:background="#858EA0"
+                app:layout_constraintTop_toBottomOf="@id/weather_cv_air" />
+
+            <TextView
+                android:id="@+id/weather_tv_air_comfortable_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:text="舒适度"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_view_divider4" />
+
+            <com.wangyz.weather.custom.CircleView
+                android:id="@+id/weather_cv_comfortable"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="5dp"
+                app:circle_background_color="#737F94"
+                app:circle_fore_color="#FFFFFF"
+                app:circle_margin_bottom="10dp"
+                app:circle_margin_top="5dp"
+                app:circle_max_value="100"
+                app:circle_max_value_text_size="14sp"
+                app:circle_min_value="0"
+                app:circle_min_value_text_size="14sp"
+                app:circle_radius="60dp"
+                app:inner_content=""
+                app:inner_content_margin_top="5dp"
+                app:inner_content_text_size="20sp"
+                app:inner_title=""
+                app:inner_title_text_size="16sp"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_air_comfortable_title"
+                app:title="空气湿度"
+                app:title_text_size="16sp" />
+
+            <TextView
+                android:id="@+id/weather_tv_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:text="体感温度"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_comfortable"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_air_comfortable_title" />
+
+            <TextView
+                android:id="@+id/weather_tv_temp_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_temp"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_temp" />
+
+            <TextView
+                android:id="@+id/weather_tv_uv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="紫外线指数"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toEndOf="@id/weather_cv_comfortable"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_temp" />
+
+            <TextView
+                android:id="@+id/weather_tv_uv_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_uv"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_uv" />
+
+            <View
+                android:id="@+id/weather_view_divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="5dp"
+                android:background="#858EA0"
+                app:layout_constraintTop_toBottomOf="@id/weather_cv_comfortable" />
+
+            <TextView
+                android:id="@+id/weather_tv_wind_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:text="风向风力"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_view_divider5" />
+
+            <ImageView
+                android:id="@+id/weather_iv_windmill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/windmill"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_wind_title" />
+
+            <Space
+                android:id="@+id/weather_space"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/weather_iv_windmill"
+                app:layout_constraintEnd_toEndOf="@id/weather_iv_windmill" />
+
+            <ImageView
+                android:id="@+id/weather_iv_windmill_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:src="@drawable/windmill_main"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_space" />
+
+            <TextView
+                android:id="@+id/weather_tv_wind_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="205dp"
+                android:layout_marginTop="50dp"
+                android:text="风向"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_wind_title" />
+
+            <TextView
+                android:id="@+id/weather_tv_wind_direction_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_wind_direction"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_wind_direction" />
+
+            <TextView
+                android:id="@+id/weather_tv_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="205dp"
+                android:layout_marginTop="5dp"
+                android:text="风力"
+                android:textColor="#858EA0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_tv_wind_direction" />
+
+            <TextView
+                android:id="@+id/weather_tv_wind_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="@id/weather_tv_wind"
+                app:layout_constraintTop_toTopOf="@id/weather_tv_wind" />
+
+            <View
+                android:id="@+id/weather_view_divider6"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="10dp"
+                android:background="#858EA0"
+                app:layout_constraintTop_toBottomOf="@id/weather_iv_windmill_main" />
+
+            <com.wangyz.weather.custom.SunView
+                android:id="@+id/weather_sun"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_view_divider6" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

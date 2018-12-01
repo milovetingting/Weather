@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/weather_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/weather_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_background"
+        android:padding="@dimen/main_top_padding">
+
+        <ImageView
+            android:id="@+id/main_iv_city"
+            android:layout_width="@dimen/main_top_manage_size"
+            android:layout_height="@dimen/main_top_manage_size"
+            android:src="@drawable/city"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/main_tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_top_title_size"
+            app:layout_constraintBaseline_toBaselineOf="@id/main_iv_city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/main_iv_setting"
+            android:layout_width="@dimen/main_top_setting_size"
+            android:layout_height="@dimen/main_top_setting_size"
+            android:src="@drawable/setting"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/weather_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/weather_manage_item_city_marginTop"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_tv_city"></RadioGroup>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weather_rg"></android.support.v4.view.ViewPager>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/weather_manage"
+        android:layout_width="@dimen/main_menu_manage_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/base_background">
+
+        <ImageView
+            android:id="@+id/weather_manage_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/main_menu_manage_back_padding"
+            android:src="@drawable/nav_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/main_menu_manage_title_marginTop"
+            android:text="@string/manage_city"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/weather_manage_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.mobeta.android.dslv.DragSortListView
+            android:id="@+id/weather_manage_lv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_menu_manage_list_height"
+            app:click_remove_id="@id/click_remove"
+            app:drag_handle_id="@id/drag_handle"
+            app:float_background_color="@color/manage_list_drag_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weather_manage_back"></com.mobeta.android.dslv.DragSortListView>
+
+        <ImageView
+            android:id="@+id/weather_manage_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weather_manage_lv" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/weather_setting"
+        android:layout_width="@dimen/main_menu_setting_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/base_background"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/weather_setting_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/main_menu_setting_back_padding"
+            android:src="@drawable/nav_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/main_menu_setting_title_marginTop"
+            android:text="@string/setting"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/weather_setting_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/weather_setting_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/divider_marginTop"
+            android:background="@color/setting_divider_background"
+            app:layout_constraintTop_toBottomOf="@id/weather_setting_back"></View>
+
+        <ListView
+            android:id="@+id/weather_setting_lv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_menu_setting_list_height"
+            android:divider="@color/setting_divider_background"
+            android:dividerHeight="1px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weather_setting_divider"></ListView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.DrawerLayout>

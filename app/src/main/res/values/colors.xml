@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="setting_enable">#FFFFFF</color>
+    <color name="setting_disable">#2B2B2B</color>
+    <color name="base_background">#264167</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider_background">#525F7B</color>
+    <color name="city_title_background">#4C5C7B</color>
+    <color name="manage_list_drag_background">#50264167</color>
+    <color name="setting_divider_background">#858EA0</color>
+    <color name="circle_background_color">#737F94</color>
+    <color name="circle_fore_color">#5ABCE7</color>
+    <color name="pollution_color">#858EA0</color>
+    <color name="search_et_background">#5B6781</color>
+
+</resources>
